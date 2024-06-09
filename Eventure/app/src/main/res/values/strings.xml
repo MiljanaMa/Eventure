@@ -1,0 +1,267 @@
+<resources>
+    <string name="app_name">Eventure</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="registration">Registration</string>
+    <string name="welcome">Welcome!</string>
+    <string name="email_placeholder">email</string>
+    <string name="password_placeholder">password</string>
+    <string name="personal_info">Personal info</string>
+    <string name="email">email:</string>
+    <string name="password">password:</string>
+    <string name="password_check">password(check):</string>
+    <string name="first_name">first name:</string>
+    <string name="last_name">last name:</string>
+    <string name="address">address:</string>
+    <string name="phone">phone:</string>
+    <string name="profile_image">profile image:</string>
+    <string name="dont_have_account">Don"'"t have an account? \n Choose your role and register:</string>
+    <string name="organizer">Event Organizer</string>
+    <string name="proveder">Service and Product Provider</string>
+    <string name="one_fourth">1"/"4</string>
+    <string name="two_fourth">2"/"4</string>
+    <string name="three_fourth">3"/"4</string>
+    <string name="four_fourth">4"/"4</string>
+    <string name="next">Next</string>
+    <string name="company_info">Company info</string>
+    <string name="company_email">company email:</string>
+    <string name="company_name">company name:</string>
+    <string name="company_address">company address:</string>
+    <string name="company_phone">company phone:</string>
+    <string name="company_description">company description:</string>
+    <string name="company_image">company image:</string>
+    <string name="what_services">What categories do you offer?</string>
+    <string name="what_events">For which types of events do you offer your products/services/packages?</string>
+    <string name="select_services">Select services</string>
+    <string name="working_hours">Working hours</string>
+    <string name="monday">Monday:</string>
+    <string name="tuesday">Tuesday:</string>
+    <string name="wednesday">Wednesday:</string>
+    <string name="thursday">Thursday:</string>
+    <string name="friday">Friday:</string>
+    <string name="saturday">Saturday:</string>
+    <string name="sunday">Sunday:</string>
+    <string name="upload_iamge">Upload image</string>
+    <string name="employees">Employees</string>
+    <string name="more">More</string>
+    <string name="search">Search</string>
+    <string name="apply">Apply</string>
+    <string name="to">to</string>
+    <string name="from">from</string>
+    <string name="schedule">Working schedule</string>
+    <string name="monday1">Monday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="Wednesday">Wednesday</string>
+    <string name="Thursday">Thursday</string>
+    <string name="Friday">Friday</string>
+    <string name="Saturday">Saturday</string>
+    <string name="Sunday">Sunday</string>
+    <string name="day">day</string>
+    <string name="period">Period</string>
+    <string name="new_schedule">New schedule</string>
+    <string name="save_schedule">Save</string>
+    <string name="employee_reg">Employee Registration</string>
+    <string name="weekly_events">   Weekly appointments  </string>
+    <string name="select_week">Select week</string>
+    <string name="create">Create</string>
+    <string name="create_event">Create appointment</string>
+    <string name="name">Name</string>
+    <string name="date">Date</string>
+    <string name="to1">To</string>
+    <string name="from1">From</string>
+    <string name="new_event">New Event</string>
+    <string name="upload_image">Upload image</string>
+    <string name="manage_categories">Manage categories</string>
+    <string name="subcategories">Subcategories</string>
+    <string name="categories">Categories</string>
+    <string name="type">Type:</string>
+    <string name="edit">Edit</string>
+    <string name="add">Add</string>
+    <string name="navigation_drawer_open" translatable="false">Navigation Drawer Open</string>
+    <string name="navigation_drawer_close" translatable="false">Navigation Drawer Close</string>
+    <string name="event_types">Event types</string>
+    <string name="description">Description:</string>
+    <string name="suggested_subcategories">Suggested subcategories:</string>
+    <string name="category">Category:</string>
+    <string name="subcategory">Subcategory:</string>
+    <string name="subcategory_name">Subcategory name:</string>
+    <string name="subcategory_description">Subcategory description:</string>
+    <string name="event_type">Event type:</string>
+    <string name="products">Products</string>
+    <string name="price">Price:</string>
+    <string name="discount">Discount:</string>
+    <string name="price_with_discount">Price with discount:</string>
+    <string name="available">Available:</string>
+    <string name="visible">Visible:</string>
+    <string name="min_price">Min price</string>
+    <string name="max_price">Max price</string>
+    <string name="filter">Filter</string>
+    <string name="add_product">Add product</string>
+    <string name="edit_product">Edit product</string>
+    <string name="or_add_new">Or suggest new subcategory</string>
+    <string name="or_add_existing">Or add exsting subcategory</string>
+    <string name="dynamic_string">%s</string>
+    <string name="event_name">Event name:</string>
+    <string name="event_description">Event description:</string>
+    <string name="max_participants">Max participants:</string>
+    <string name="privacy_rules">Privacy rules:</string>
+    <string name="location_restrictions">Location restrictions:</string>
+    <string name="time_restrictions">Time restrictions:</string>
+    <string name="add_agenda">Add agenda:</string>
+    <string name="add_guest_list">Add guest list:</string>
+    <string name="plan_budget">Plan budget:</string>
+    <string name="finish">Finish:</string>
+    <string name="cancel">Cancel</string>
+    <string name="subcategory_suggestions">Subcategory suggestions</string>
+    <string name="add_to_existing_subcategory">Add to existing subcategory</string>
+    <string name="select_subcategory">Select subcategory:</string>
+    <string name="confirm">Confirm</string>
+    <string name="budget_hint">Enter budget</string>
+    <string name="amount">Amount</string>
+    <string name="products_services_packages">Products, services and packages</string>
+    <string name="services">Services</string>
+    <string name="specifics">Specifics:</string>
+    <string name="price_per_hour">Price per hour:</string>
+    <string name="full_price">Full price:</string>
+    <string name="duration">Duration:</string>
+    <string name="location">Location:</string>
+    <string name="service_providers">Service providers:</string>
+    <string name="reservation_deadline">Reservation deadline in days:</string>
+    <string name="cancellation_deadline">Cancellation deadline in days:</string>
+    <string name="manual_confirmation">Manual confirmation:</string>
+    <string name="add_service">Add service</string>
+    <string name="edit_service">Edit service</string>
+    <string name="back">Back</string>
+    <string name="packages">Packages</string>
+    <string name="product_name">Product name:</string>
+    <string name="service_name">Service name:</string>
+    <string name="products_in_package">Products:</string>
+    <string name="services_in_package">Services:</string>
+    <string name="add_package">Add Package</string>
+    <string name="edit_package">Edit Package</string>
+    <string name="cbox_wt">Make custom work schedule</string>
+    <string name="employee">Employee</string>
+    <string name="events">Events</string>
+    <string name="mark_as_read">Mark as read</string>
+    <string name="notifications">Notifications</string>
+    <string name="submission_date">Date:</string>
+    <string name="request_company_name">Company:</string>
+    <string name="reject">Reject</string>
+    <string name="registration_requests">Registration requests</string>
+    <string name="request_owner_firstname">Owner first name:</string>
+    <string name="request_owner_lastname">Owner last name:</string>
+    <string name="request_company_email">Company email:</string>
+    <string name="request_owner_email">Owner email:</string>
+    <string name="from_date">From:</string>
+    <string name="to_date">To:</string>
+    <string name="rejection_reason">Rejection reason:</string>
+    <string name="submit">Submit</string>
+    <string name="reset_filter">Reset filter</string>
+    <string name="from_time">From time</string>
+    <string name="to_time">To time</string>
+    <string name="check_availability">Check availability</string>
+    <string name="select_date">Choose a date to view the reserved slots for that specific day.</string>
+
+    <string-array name="sort_spinner_array">
+        <item>Ascending </item>
+        <item>Descending</item>
+    </string-array>
+
+    <string-array name="notification_status">
+        <item>ALL</item>
+        <item>READ</item>
+        <item>UNREAD</item>
+    </string-array>
+
+
+    <string-array name="subcategory_type_spinner_array">
+        <item>PRODUCT</item>
+        <item>SERVICE</item>
+    </string-array>
+
+    <string-array name="event_types_array">
+        <item>Wedding </item>
+        <item>Birthday</item>
+        <item>Team Building</item>
+        <item>Conference</item>
+    </string-array>
+
+
+    <string-array name="privacy_rules_array">
+        <item>Private </item>
+        <item>Public</item>
+    </string-array>
+
+
+    <string-array name="category_spinner_array">
+        <item>Category 1</item>
+        <item>Category 2</item>
+        <item>Category 3</item>
+        <item>Category 4</item>
+    </string-array>
+
+    <string-array name="subcategory_spinner_array">
+        <item>Subcategory 1</item>
+        <item>Subcategory 2</item>
+        <item>Subcategory 3</item>
+        <item>Subcategory 4</item>
+    </string-array>
+    <string-array name="reservation_status_spinner_array">
+        <item>ALL</item>
+        <item>CANCELED BY PUP</item>
+        <item>NEW</item>
+        <item>CANCELED BY ADMIN</item>
+        <item>CANCELED BY ORGANIZER</item>
+        <item>ACCEPTED</item>
+        <item>REALIZED</item>
+        <item>REJECTED</item>
+    </string-array>
+
+    <string-array name="event_type_spinner_array">
+        <item>all</item>
+        <item>product</item>
+        <item>service</item>
+        <item>package</item>
+    </string-array>
+
+    <string-array name="availability_spinner_array">
+        <item>Available</item>
+        <item>Not Available</item>
+    </string-array>
+
+    <string-array name="visibility_spinner_array">
+        <item>Visible</item>
+        <item>Not Visible</item>
+    </string-array>
+
+    <string-array name="manual_confirmation_spinner_array">
+        <item>MANUAL</item>
+        <item>AUTOMATIC</item>
+    </string-array>
+
+    <string name="reservations">Reservations</string>
+    <string name="details">Details</string>
+    <string name="ratings">Ratings</string>
+    <string name="filters">Filters</string>
+    <string name="report">report</string>
+    <string name="reset">reset</string>
+    <string name="leaveRating">Rate</string>
+    <string name="rating">Rating</string>
+    <string name="comment">Comment</string>
+    <string name="reason">Reason</string>
+    <string name="accept">Accept</string>
+    <string name="deny">Deny</string>
+    <string name="reports">Reports</string>
+    <string name="reported">Reported:</string>
+    <string name="organizer1">Organizer :</string>
+    <string name="employee1" >Employee:&#160;</string>
+    <string name="service1"  >Service:&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="category1" >Category:&#160;&#160;&#160;</string>
+    <string name="status"    >Status:&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="date1"    >Date:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="deadline"  >Deadline:&#160;&#160;&#160;</string>
+    <string name="period1"   >Period:&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

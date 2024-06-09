@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.common.CreateEvent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:text="@string/create_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/merienda_font"
+            android:shadowColor="@color/black"
+            android:shadowDx="0"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="32sp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/merienda_font"
+            android:text="@string/name"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/appointment_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:fontFamily="@font/merienda_font"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/merienda_font"
+            android:text="@string/date"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="14sp" />
+        <DatePicker
+            android:id="@+id/startDatePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/merienda_font"
+            android:text="@string/from1"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="14sp" />
+
+        <TimePicker
+            android:id="@+id/fromtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:timePickerMode="spinner" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/merienda_font"
+            android:text="@string/to1"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="14sp" />
+
+        <TimePicker
+            android:id="@+id/totp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:timePickerMode="spinner" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/cancelNewEventCreation"
+                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button_secondary"
+                android:fontFamily="@font/merienda_font"
+                android:text="@string/cancel"
+                android:textColor="@color/light_gray"
+                android:textSize="16sp" />
+            <Button
+                android:id="@+id/createNewEvent"
+                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button_primary"
+                android:fontFamily="@font/merienda_font"
+                android:text="@string/create"
+                android:textColor="@color/light_gray"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    </ScrollView>
+</FrameLayout>

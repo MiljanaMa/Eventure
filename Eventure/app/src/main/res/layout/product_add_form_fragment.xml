@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.owner.ProductAddFormFragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:background="@color/white"
+    android:id="@+id/product_add_form_container"
+    >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/login_background"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="@drawable/layout_border"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/blue"
+                android:text="@string/add_product"
+                android:textSize="24sp"
+                android:shadowRadius="4"
+                android:shadowColor="@color/black"
+                android:shadowDx="0"
+                android:shadowDy="4"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/name"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <EditText
+                    android:id="@+id/product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/description"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+
+                <EditText
+                    android:id="@+id/product_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/category"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <Spinner
+                    android:id="@+id/product_category_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/sublayout_border"
+                    android:entries="@array/category_spinner_array"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/subcategory_container">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp"
+                        android:textAlignment="textStart"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/subcategory"
+                        android:shadowRadius="4"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="0"
+                        android:shadowDy="4" />
+
+                    <Spinner
+                        android:id="@+id/product_subcategory_spinner"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/sublayout_border"
+                        android:entries="@array/subcategory_spinner_array"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <Button
+                        android:id="@+id/suggest_subcategory_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="@string/or_add_new"
+                        android:textSize="16sp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/light_gray"
+                        android:background="@drawable/button_secondary"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/subcategory_suggestion_containter"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp"
+                        android:textAlignment="textStart"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/subcategory_name"
+                        android:shadowRadius="4"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="0"
+                        android:shadowDy="4"
+                        android:padding="3dp"/>
+
+                    <EditText
+                        android:id="@+id/subcategory_name_suggestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/merienda_font"
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp"
+                        android:textAlignment="textStart"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/subcategory_description"
+                        android:shadowRadius="4"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="0"
+                        android:shadowDy="4"
+                        android:padding="3dp"/>
+
+                    <EditText
+                        android:id="@+id/subcategory_description_suggestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/merienda_font"
+                        android:textSize="16sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <Button
+                        android:id="@+id/add_existing_subcategory_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="@string/or_add_existing"
+                        android:textSize="16sp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/light_gray"
+                        android:background="@drawable/button_secondary"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/event_type"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@drawable/sublayout_border"
+                    android:layout_margin="10dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/events_types_checkbox_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical"/>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/price"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <EditText
+                    android:id="@+id/product_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/discount"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+
+                <EditText
+                    android:id="@+id/product_discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/price_with_discount"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4"
+                    android:padding="3dp"/>
+
+                <EditText
+                    android:id="@+id/product_price_with_discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/available"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <Spinner
+                    android:id="@+id/product_available_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/sublayout_border"
+                    android:entries="@array/availability_spinner_array"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/visible"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <Spinner
+                    android:id="@+id/product_visible_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/sublayout_border"
+                    android:entries="@array/visibility_spinner_array"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sublayout_border"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/upload_image"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="10dp" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/upload_image_button"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="@string/upload_image"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/light_gray"
+                android:background="@drawable/button_secondary"
+                android:layout_gravity="center_horizontal"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:text="@string/cancel"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/light_gray"
+                android:background="@drawable/button_secondary" />
+
+            <Button
+                android:id="@+id/product_add_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:text="@string/add"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/light_gray"
+                android:background="@drawable/button_primary" />
+
+        </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

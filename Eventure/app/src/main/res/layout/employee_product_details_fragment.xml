@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.employee.EmployeeProductDetailsFragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:background="@color/white"
+    android:id="@+id/employee_products_details_container"
+    >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/login_background"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="@drawable/layout_border"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/blue"
+                android:textSize="24sp"
+                android:shadowRadius="4"
+                android:shadowColor="@color/black"
+                android:shadowDx="0"
+                android:shadowDy="4"
+                android:textAlignment="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:background="@drawable/sublayout_border"
+                android:src="@drawable/photo_album"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/description"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <TextView
+                    android:id="@+id/product_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/category"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <TextView
+                    android:id="@+id/product_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/subcategory"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <TextView
+                    android:id="@+id/product_subcategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/event_type"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <TextView
+                    android:id="@+id/product_event_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/price"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <TextView
+                    android:id="@+id/product_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/discount"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <TextView
+                    android:id="@+id/product_discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/price_with_discount"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <TextView
+                    android:id="@+id/product_price_with_discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/available"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <TextView
+                    android:id="@+id/product_available"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="textStart"
+                    android:layout_marginStart="5dp" />
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/sublayout_border"
+                        android:padding="10dp"
+                        android:src="@drawable/photo_album" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/sublayout_border"
+                        android:padding="10dp"
+                        android:src="@drawable/photo_album" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/sublayout_border"
+                        android:padding="10dp"
+                        android:src="@drawable/photo_album" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/sublayout_border"
+                        android:src="@drawable/photo_album"
+                        android:padding="10dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"/>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/go_back_button"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_arrow_left"
+                    android:scaleType="fitCenter"
+                    android:layout_margin="10dp"
+                    android:padding="5dp"
+                    android:background="@drawable/button_primary"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

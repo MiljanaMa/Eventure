@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.employee.EmployeePackagesViewFragment"
+    android:id="@+id/employee_packages_fragment_container"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/blue"
+                android:text="@string/packages"
+                android:textSize="24sp"
+                android:shadowRadius="4"
+                android:shadowColor="@color/black"
+                android:shadowDx="0"
+                android:shadowDy="4"
+                android:textAlignment="textStart"
+                android:layout_margin="10dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search"
+                android:background="@drawable/sublayout_border"/>
+
+            <Button
+                android:id="@+id/filter_button"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/filter"
+                android:layout_marginStart="5dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/light_gray"
+                android:background="@drawable/button_primary"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/filter_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp"
+                        android:textAlignment="textStart"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/product_name"
+                        android:shadowRadius="4"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="0"
+                        android:shadowDy="4" />
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/search_by_product_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:iconifiedByDefault="false"
+                        android:queryHint="Search"
+                        android:background="@drawable/sublayout_border"
+                        android:layout_margin="5dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/blue"
+                        android:textSize="16sp"
+                        android:textAlignment="textStart"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/service_name"
+                        android:shadowRadius="4"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="0"
+                        android:shadowDy="4" />
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/search_by_service_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:iconifiedByDefault="false"
+                        android:queryHint="Search"
+                        android:background="@drawable/sublayout_border"
+                        android:layout_margin="5dp"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/category_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/sublayout_border"
+                    android:entries="@array/category_spinner_array"/>
+
+                <Spinner
+                    android:id="@+id/subcategory_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/sublayout_border"
+                    android:entries="@array/subcategory_spinner_array"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/event_type_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/sublayout_border"
+                    android:entries="@array/event_type_spinner_array"/>
+
+                <Spinner
+                    android:id="@+id/availability_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/sublayout_border"
+                    android:entries="@array/availability_spinner_array"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/min_price_filter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="14sp"
+                    android:inputType="numberDecimal"
+                    android:hint="@string/min_price"
+                    android:textAlignment="center"/>
+
+                <EditText
+                    android:id="@+id/max_price_filter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="14sp"
+                    android:inputType="numberDecimal"
+                    android:hint="@string/max_price"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_gray">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/packages_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

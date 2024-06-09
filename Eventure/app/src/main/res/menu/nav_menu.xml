@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <!--____________________________________ COMMON ________________________________-->
+        <item android:id="@+id/nav_login"
+            android:title="Login"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_register_organizer"
+            android:title="Register as Event Organizer"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_register_owner"
+            android:title="Register as Provider"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_offer_search"
+            android:title="Search and filter offers"
+            android:orderInCategory="200"/>
+        <item android:id="@+id/nav_reservations"
+            android:title="Reservations"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_notifications"
+            android:title="Notifications"
+            android:orderInCategory="200"/>
+
+        <!--______________________________________ ADMIN _________________________________-->
+
+        <item android:id="@+id/nav_category_managment"
+            android:title="Categories"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_event_type_managment"
+            android:title="Event types"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_subcategory_suggestions_managment"
+            android:title="Subcategory suggestions"
+            android:orderInCategory="200"/>
+        <item android:id="@+id/nav_reports"
+            android:title="@string/reports"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_owner_registration_requests"
+            android:title="Registration Requests Managment"
+            android:orderInCategory="200"/>
+
+        <!--______________________________________ OWNER _________________________________-->
+        <item android:id="@+id/nav_owner_main"
+            android:title="Owner main"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/employee_management"
+            android:title="Employees"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_owner_products"
+            android:title="Products"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_owner_services"
+            android:title="Services"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_owner_packages"
+            android:title="Packages"
+            android:orderInCategory="200"/>
+        <item android:id="@+id/events_calendar"
+            android:title="Events calendar"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/working_schedule"
+            android:title="Work schedule"
+            android:orderInCategory="200"/>
+        <item android:id="@+id/ratings"
+            android:title="@string/ratings"
+            android:orderInCategory="200"/>
+
+
+        <!--____________________________________ EMPLOYEE ________________________________-->
+        <item android:id="@+id/nav_employee_main"
+            android:title="Employee main"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_employee_products"
+            android:title="Products"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_employee_services"
+            android:title="Services"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_employee_packages"
+            android:title="Packages"
+            android:orderInCategory="200"/>
+        <item android:id="@+id/nav_employee_profile"
+            android:title="Profile"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_event_listing_container"
+            android:title="Events"
+            android:orderInCategory="200"/>
+
+        <!--____________________________________ ORGANIZER ________________________________-->
+        <item android:id="@+id/nav_organizer_main"
+            android:title="Organizer main"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/next_event_creation1"
+            android:title="Create appointment"
+            android:orderInCategory="200"/>
+
+        <item android:id="@+id/nav_favorites"
+            android:title="Favorites"
+            android:orderInCategory="200"/>
+
+        <!--_____________________________ LOGOUT MUST BE  HERE  ___________________________-->
+        <item android:id="@+id/nav_logout"
+            android:title="Logout"
+            android:orderInCategory="200"/>
+    </group>
+</menu>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/sublayout_border"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:id="@+id/request_card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/owner_image"
+                android:layout_width="130dp"
+                android:layout_height="110dp"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="0dp"
+                android:padding="0dp"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="0dp">
+
+                <TextView
+                    android:id="@+id/request_user_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp"
+                    android:textAlignment="center"
+                    android:layout_marginStart="5dp"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/white"
+                    android:shadowDx="0"
+                    android:shadowDy="4" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/blue"
+                        android:textSize="12sp"
+                        android:textAlignment="textStart"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/request_company_name"
+                        android:shadowRadius="4"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="0"
+                        android:shadowDy="4"
+                        android:maxLines="1"/>
+
+                    <TextView
+                        android:id="@+id/request_company_name"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/blue"
+                        android:textSize="12sp"
+                        android:textAlignment="textStart"
+                        android:layout_marginStart="5dp"
+                        android:maxLines="1"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/blue"
+                        android:textSize="12sp"
+                        android:textAlignment="textStart"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/submission_date"
+                        android:shadowRadius="4"
+                        android:shadowColor="@color/white"
+                        android:shadowDx="0"
+                        android:shadowDy="4"
+                        android:maxLines="1"/>
+
+                    <TextView
+                        android:id="@+id/request_date"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/blue"
+                        android:textSize="12sp"
+                        android:textAlignment="textStart"
+                        android:layout_marginStart="5dp"
+                        android:maxLines="1"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_margin="10dp">
+
+                    <Button
+                        android:id="@+id/accept_request_button"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:text="@string/accept"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/light_gray"
+                        android:background="@drawable/button_primary" />
+
+                    <Button
+                        android:id="@+id/reject_request_button"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:text="@string/reject"
+                        android:textSize="16sp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/light_gray"
+                        android:background="@drawable/button_secondary" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

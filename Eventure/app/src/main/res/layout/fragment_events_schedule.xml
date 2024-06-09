@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/fragmentFrame"
+    tools:context=".fragments.common.EventsSchedule">
+
+    <LinearLayout
+        android:id="@+id/weeklySchedule"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        android:background="@drawable/layout_border"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/registration_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/merienda_font"
+            android:shadowColor="@color/black"
+            android:shadowDx="0"
+            android:shadowDy="4"
+            android:shadowRadius="4"
+            android:text="@string/weekly_events"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            android:textSize="32sp" />
+        <Button
+            android:id="@+id/addEventBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
+            android:background="@drawable/button_primary"
+            android:fontFamily="@font/merienda_font"
+            android:text="@string/new_event"
+            android:scaleType="centerInside"
+            android:layout_gravity="center"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp" />
+        <LinearLayout
+            android:id="@+id/selectWeekRelativeLayout"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:gravity="bottom">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/selectWeekTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:text="@string/select_week"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+
+            <Button
+                android:id="@+id/openWeekPickerButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_toEndOf="@id/weekPickerInputLayout"
+                android:text="📅"
+                android:layout_alignBaseline="@id/selectWeekTextView"/>
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/weekPickerInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/selectWeekTextView"
+                android:layout_alignBaseline="@id/selectWeekTextView"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:textColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/weekPickerEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:textSize="14sp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/eventsRecycleViewer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            layout_constraintEnd_toEndOf="parent"
+            layout_constraintStart_toStartOf="parent"
+            layout_constraintTop_toBottomOf="@id/selectWeekRelativeLayout"
+            layout_constraintBottom_toBottomOf="@id/fragmentFrame"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.admin.EventTypeManagmentFragment"
+    android:id="@+id/event_type_fragment_container">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/merienda_font"
+            android:textColor="@color/blue"
+            android:text="@string/event_types"
+            android:textSize="24sp"
+            android:shadowRadius="4"
+            android:shadowColor="@color/black"
+            android:shadowDx="0"
+            android:shadowDy="4"
+            android:textAlignment="textStart"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:id="@+id/add_event_type_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_add"
+            android:scaleType="centerCrop"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_primary"/>
+
+    </LinearLayout>
+
+<!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search"
+            android:background="@drawable/sublayout_border"/>
+
+        <Spinner
+            android:id="@+id/sort_spinner"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/sublayout_border"
+            android:entries="@array/sort_spinner_array"/>
+
+    </LinearLayout>
+-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/event_types_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
+
+    </ScrollView>
+
+</LinearLayout>

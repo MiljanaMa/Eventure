@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    tools:context=".fragments.organizer.EventCreation1"
+    android:id="@+id/event_creation1">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/layout_border"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/merienda_font"
+            android:textColor="@color/white"
+
+            android:background="@color/orange"
+            android:text="@string/create_event"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/event_type_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/event_type"
+        android:textSize="18sp"
+        android:textColor="@color/blue"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/event_type_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:entries="@array/event_types_array" />
+
+    <TextView
+        android:id="@+id/event_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/event_name"
+        android:textSize="18sp"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/event_name_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/event_description_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/event_description"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/event_description_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/max_participants_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/max_participants"
+        android:textSize="18sp"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/max_participants_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/privacy_rules_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/privacy_rules"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:layout_marginTop="16dp" />
+
+    <Spinner
+        android:id="@+id/privacy_rules_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:entries="@array/privacy_rules_array" />
+
+    <TextView
+        android:id="@+id/location_restrictions_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location_restrictions"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/location_restrictions_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/time_restrictions_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/time_restrictions"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/time_restrictions_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/add_agenda_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_agenda"
+        android:layout_gravity="center"
+        android:textColor="@color/blue"
+        android:background="@drawable/button_primary"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/add_guest_list_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_guest_list"
+        android:layout_gravity="center"
+        android:textColor="@color/blue"
+        android:background="@drawable/button_primary"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/budget_planning_categories_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/plan_budget"
+        android:layout_gravity="center"
+        android:textColor="@color/light_gray"
+        android:background="@drawable/button_primary"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/finish_event_creation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/finish"
+        android:layout_gravity="center"
+        android:textColor="@color/light_gray"
+        android:background="@drawable/button_primary"
+        android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+</ScrollView>

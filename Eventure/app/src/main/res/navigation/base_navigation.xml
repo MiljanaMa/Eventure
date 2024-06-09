@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/nav_login">
+
+    <!--____________________________________ COMMON ________________________________-->
+
+    <!-- LOGIN -->
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.eventure.fragments.common.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/login_fragment">
+
+        <action
+            android:id="@+id/action_loginFragment_to_registerOrganizerFragment"
+            app:destination="@id/nav_register_organizer" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_registerOwnerFragment"
+            app:destination="@id/nav_register_owner" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_category_managment_fragment"
+            app:destination="@id/nav_category_managment" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_owner_main_fragment"
+            app:destination="@id/nav_owner_main" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_employee_main_fragment"
+            app:destination="@id/nav_employee_main" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_organizer_main_fragment"
+            app:destination="@id/nav_organizer_main" />
+    </fragment>
+
+    <!-- REGISTER ORGANIZER -->
+    <fragment
+        android:id="@+id/nav_register_organizer"
+        android:name="com.example.eventure.fragments.common.RegisterOrganizerFragment"
+        android:label="Oraganizer Registration"
+        app:popUpTo="@+id/login_fragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/register_organizer_fragment">
+
+        <action
+            android:id="@+id/action_registerOrganizerFragment_to_loginFragment"
+            app:destination="@id/nav_login" />
+
+    </fragment>
+
+    <!-- REGISTER OWNER -->
+    <fragment
+        android:id="@+id/nav_register_owner"
+        android:name="com.example.eventure.fragments.common.RegisterOwnerFragment1"
+        android:label="Provider Registration"
+        app:popUpTo="@+id/login_fragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/register_owner_fragment1">
+
+        <action
+            android:id="@+id/action_registerOwnerFragment_to_loginFragment"
+            app:destination="@id/nav_login" />
+
+    </fragment>
+
+    <!-- LOGOUT -->
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.eventure.fragments.common.LogoutFragment"
+        android:label="Login"
+        app:popUpTo="@+id/logout_fragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/login_fragment">
+
+        <action
+            android:id="@+id/action_logoutFragment_to_loginFragment"
+            app:destination="@id/nav_login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_notifications"
+        android:name="com.example.eventure.fragments.common.NotificationFragment"
+        android:label="Notifications"
+        tools:layout="@layout/notification_fragment"
+        app:popUpTo="@+id/login_fragment"
+        app:popUpToInclusive="true">
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_reservations"
+        android:name="com.example.eventure.fragments.common.Reservations"
+        android:label="Reservations"
+        tools:layout="@layout/fragment_reservations"
+        app:popUpTo="@+id/login_fragment"
+        app:popUpToInclusive="true">
+
+    </fragment>
+
+    <!--______________________________________ ADMIN _________________________________-->
+
+    <!-- CATEGORY MANAGMENT(change pop up to admin home fragment) -->
+    <fragment
+        android:id="@+id/nav_category_managment"
+        android:name="com.example.eventure.fragments.admin.CategoryManagmentFragment"
+        android:label="Category Managment"
+        app:popUpTo="@+id/login_fragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/category_managment_fragment">
+
+    </fragment>
+
+
+    <!-- EVENT TYPE MANAGMENT(change pop up to admin home fragment)-->
+    <fragment
+        android:id="@+id/nav_event_type_managment"
+        android:name="com.example.eventure.fragments.admin.EventTypeManagmentFragment"
+        android:label="Event Type Managment"
+        app:popUpTo="@+id/login_fragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/event_type_managment_fragment">
+
+    </fragment>
+
+    <!-- SUBCATEGORY SUGGESTIONS-->
+    <fragment
+        android:id="@+id/nav_subcategory_suggestions_managment"
+        android:name="com.example.eventure.fragments.admin.SubcategorySuggestionManagmentFragment"
+        android:label="Subcategory Sugestion Managment"
+        app:popUpTo="@+id/login_fragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/subcategory_suggestion_managment_fragment">
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_reports"
+        android:name="com.example.eventure.fragments.admin.Reports"
+        android:label="Reports"
+        tools:layout="@layout/fragment_reports"
+        app:popUpTo="@+id/login_fragment"
+        app:popUpToInclusive="true">
+
+    </fragment>
+
+    <!-- OWNER REGISTATION REQUESTS-->
+    <fragment
+        android:id="@+id/nav_owner_registration_requests"
+        android:name="com.example.eventure.fragments.admin.OwnerRegistrationRequestsFragment"
+        android:label="Registration Requests Managment"
+        tools:layout="@layout/owner_registration_requests_fragment"
+        app:popUpTo="@+id/login_fragment"
+        app:popUpToInclusive="true">
+
+    </fragment>
+
+
+    <!--______________________________________ OWNER _________________________________-->
+    <fragment
+        android:id="@+id/nav_owner_main"
+        android:name="com.example.eventure.fragments.owner.OwnerMainFragment"
+        android:label="Owner main"
+        app:popUpTo="@+id/nav_owner_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/owner_main_fragment">
+
+    </fragment>
+    <fragment
+        android:id="@+id/events_calendar"
+        android:name="com.example.eventure.fragments.common.EventsSchedule"
+        android:label="Events calendar"
+        app:popUpTo="@+id/nav_owner_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_events_schedule"></fragment>
+    <fragment
+        android:id="@+id/working_schedule"
+        android:name="com.example.eventure.fragments.common.WorkingHours"
+        android:label="Work schedule"
+        app:popUpTo="@+id/nav_owner_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_working_hours"></fragment>
+
+    <fragment
+        android:id="@+id/employee_management"
+        android:name="com.example.eventure.fragments.owner.EmployeeManagement"
+        android:label="Employee Management"
+        app:popUpTo="@+id/nav_owner_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_employee_managment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_owner_products"
+        android:name="com.example.eventure.fragments.owner.OwnerProductsViewFragment"
+        android:label="Owner Products"
+        app:popUpTo="@+id/nav_owner_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/owner_products_view_fragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_owner_services"
+        android:name="com.example.eventure.fragments.owner.OwnerServicesViewFragment"
+        android:label="Owner Services"
+        app:popUpTo="@+id/nav_owner_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/owner_services_view_fragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_owner_packages"
+        android:name="com.example.eventure.fragments.owner.OwnerPackagesViewFragment"
+        android:label="Owner Packages"
+        app:popUpTo="@+id/nav_owner_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/owner_services_view_fragment">
+
+    </fragment>
+    <fragment
+        android:id="@+id/ratings"
+        android:name="com.example.eventure.fragments.common.Ratings"
+        android:label="Ratings"
+        tools:layout="@layout/fragment_ratings"
+        app:popUpTo="@+id/nav_owner_main"
+        app:popUpToInclusive="true">
+    </fragment>
+
+    <!--____________________________________ EMPLOYEE ________________________________-->
+    <fragment
+        android:id="@+id/nav_employee_main"
+        android:name="com.example.eventure.fragments.employee.EmployeeMainFragment"
+        android:label="Employee main"
+        app:popUpTo="@+id/nav_employee_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/employee_main_fragment">
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_employee_profile"
+        android:name="com.example.eventure.fragments.common.EmployeeProfile"
+        android:label="Profile"
+        app:popUpTo="@+id/nav_employee_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_employee_profile">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_employee_products"
+        android:name="com.example.eventure.fragments.employee.EmployeeProductsViewFragment"
+        android:label="Employee Products"
+        app:popUpTo="@+id/nav_employee_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/employee_products_view_fragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_employee_services"
+        android:name="com.example.eventure.fragments.employee.EmployeeServicesViewFragment"
+        android:label="Employee Services"
+        app:popUpTo="@+id/nav_employee_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/employee_services_view_fragment">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_employee_packages"
+        android:name="com.example.eventure.fragments.employee.EmployeePackagesViewFragment"
+        android:label="Employee Packages"
+        app:popUpTo="@+id/nav_employee_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/employee_packages_view_fragment">
+
+    </fragment>
+
+    <!--____________________________________ ORGANIZER ________________________________-->
+    <fragment
+        android:id="@+id/nav_organizer_main"
+        android:name="com.example.eventure.fragments.organizer.OrganizerMainFragment"
+        android:label="Organizer main"
+        app:popUpTo="@+id/nav_organizer_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/organizer_main_fragment">
+
+        <action
+            android:id="@+id/action_organizerMain_to_eventCreation"
+            app:destination="@id/next_event_creation1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/next_event_creation1"
+        android:name="com.example.eventure.fragments.organizer.EventCreation1"
+        android:label="Event creation1"
+        app:popUpTo="@+id/nav_organizer_main"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_event_creation1">
+
+        <action
+            android:id="@+id/action_eventCreationFragment1_to_organizerMainFragment"
+            app:destination="@id/nav_organizer_main" />
+        <action
+            android:id="@+id/action_eventCreationFragment1_to_budgetPlanningFragment1"
+            app:destination="@id/budgetPlanning1" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/budgetPlanning1"
+        android:name="com.example.eventure.fragments.organizer.BudgetPlanning1"
+        android:label="fragment_budget_planning1"
+        tools:layout="@layout/fragment_budget_planning1">
+        <action
+            android:id="@+id/action_eventCreationFragment1_to_budgetPlanningFragment1"
+            app:destination="@id/next_event_creation1" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_event_listing_container"
+        android:name="com.example.eventure.fragments.organizer.EventsListing"
+        android:label="Events"
+        tools:layout="@layout/fragment_events_listing" />
+
+    <fragment
+        android:id="@+id/nav_offer_search"
+        android:name="com.example.eventure.fragments.common.OfferSearchFragment"
+        android:label="Offers"
+        tools:layout="@layout/fragment_offer_search">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.example.eventure.fragments.organizer.FavoritesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorites">
+    </fragment>
+
+
+</navigation>

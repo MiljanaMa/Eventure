@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.common.RegisterOwnerFragment2"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:background="@color/white"
+    android:id="@+id/register_owner_container2">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/login_background"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:background="@drawable/layout_border"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:text="@string/registration"
+                    android:textSize="32sp"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="0"
+                    android:shadowDy="4"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:text="@string/company_info"
+                    android:textSize="24sp"
+                    android:shadowRadius="4"
+                    android:shadowColor="@color/black"
+                    android:shadowDx="0"
+                    android:shadowDy="4"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:text="@string/company_email"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
+
+                <EditText
+                    android:id="@+id/email_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"
+                    android:inputType="textEmailAddress"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:text="@string/company_name"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
+
+                <EditText
+                    android:id="@+id/name_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"
+                    android:inputType="text"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:text="@string/company_address"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
+
+                <EditText
+                    android:id="@+id/address_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"
+                    android:inputType="text"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:text="@string/company_phone"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
+
+                <EditText
+                    android:id="@+id/phone_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"
+                    android:inputType="phone"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:text="@string/company_description"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
+
+                <EditText
+                    android:id="@+id/description_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textSize="16sp"
+                    android:inputType="text"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:text="@string/company_image"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sublayout_border"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/upload_image"
+                        android:scaleType="centerCrop"
+                        android:layout_margin="10dp" />
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/upload_image_button"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:text="@string/upload_image"
+                    android:textSize="16sp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/light_gray"
+                    android:background="@drawable/button_secondary"
+                    android:layout_gravity="center_horizontal"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/back_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="50dp"
+                        android:text="@string/back"
+                        android:textSize="16sp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/light_gray"
+                        android:background="@drawable/button_secondary" />
+
+                    <Button
+                        android:id="@+id/next_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="50dp"
+                        android:text="@string/next"
+                        android:textSize="16sp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/merienda_font"
+                        android:textColor="@color/light_gray"
+                        android:background="@drawable/button_primary" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_font"
+                    android:textColor="@color/blue"
+                    android:text="@string/two_fourth"
+                    android:textSize="16sp"
+                    android:textAlignment="center"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

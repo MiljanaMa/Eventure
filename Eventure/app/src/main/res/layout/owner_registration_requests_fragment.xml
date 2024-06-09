@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.admin.OwnerRegistrationRequestsFragment"
+    android:id="@+id/registration_requests_container"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/blue"
+                android:text="@string/registration_requests"
+                android:textSize="24sp"
+                android:shadowRadius="4"
+                android:shadowColor="@color/black"
+                android:shadowDx="0"
+                android:shadowDy="4"
+                android:textAlignment="textStart"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/filter_button"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="@string/filter"
+                android:layout_marginStart="5dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/light_gray"
+                android:background="@drawable/button_primary"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/filter_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/reset_filter_button"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@string/reset_filter"
+                android:textSize="16sp"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/light_gray"
+                android:background="@drawable/button_secondary"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/final_search_button"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@string/search"
+                android:textSize="16sp"
+                android:fontFamily="@font/merienda_font"
+                android:textColor="@color/light_gray"
+                android:background="@drawable/button_primary"
+                android:layout_marginBottom="20dp"/>
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="300dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp">
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/merienda_font"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/request_company_name"
+                            android:shadowRadius="4"
+                            android:shadowColor="@color/white"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:maxLines="1"
+                            android:layout_margin="5dp"/>
+
+
+                        <EditText
+                            android:id="@+id/company_name_search"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:layout_margin="5dp"
+                            android:fontFamily="@font/merienda_font"
+                            android:textSize="16sp"
+                            android:inputType="text"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1.1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/merienda_font"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/request_owner_firstname"
+                            android:shadowRadius="4"
+                            android:shadowColor="@color/white"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:maxLines="1"
+                            android:layout_margin="5dp"/>
+
+                        <EditText
+                            android:id="@+id/owner_firstname_search"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:layout_margin="5dp"
+                            android:fontFamily="@font/merienda_font"
+                            android:textSize="16sp"
+                            android:inputType="text"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/merienda_font"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/request_owner_lastname"
+                            android:shadowRadius="4"
+                            android:shadowColor="@color/white"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:maxLines="1"
+                            android:layout_margin="5dp"/>
+
+                        <EditText
+                            android:id="@+id/owner_lastname_search"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:layout_margin="5dp"
+                            android:fontFamily="@font/merienda_font"
+                            android:textSize="16sp"
+                            android:inputType="text"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/merienda_font"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/request_company_email"
+                            android:shadowRadius="4"
+                            android:shadowColor="@color/white"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:maxLines="1"
+                            android:layout_margin="5dp"/>
+
+                        <EditText
+                            android:id="@+id/company_email_search"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:layout_margin="5dp"
+                            android:fontFamily="@font/merienda_font"
+                            android:textSize="16sp"
+                            android:inputType="text"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/merienda_font"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/request_owner_email"
+                            android:shadowRadius="4"
+                            android:shadowColor="@color/white"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:maxLines="1"
+                            android:layout_margin="5dp"/>
+
+                        <EditText
+                            android:id="@+id/owner_email_search"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:layout_margin="5dp"
+                            android:fontFamily="@font/merienda_font"
+                            android:textSize="16sp"
+                            android:inputType="text"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/merienda_font"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/category"
+                            android:shadowRadius="4"
+                            android:shadowColor="@color/white"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:maxLines="1"
+                            android:layout_margin="5dp"/>
+
+                        <Spinner
+                            android:id="@+id/category_spinner"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:layout_margin="5dp"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/sublayout_border"
+                            android:entries="@array/category_spinner_array"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/merienda_font"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/event_type"
+                            android:shadowRadius="4"
+                            android:shadowColor="@color/white"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:maxLines="1"
+                            android:layout_margin="5dp"/>
+
+                        <Spinner
+                            android:id="@+id/event_type_spinner"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/sublayout_border"
+                            android:entries="@array/event_type_spinner_array"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/merienda_font"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/from_date"
+                            android:shadowRadius="4"
+                            android:shadowColor="@color/white"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:maxLines="1"
+                            android:layout_margin="5dp"/>
+
+                        <DatePicker
+                            android:id="@+id/from_date_filter"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:layout_margin="5dp"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/merienda_font"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp"
+                            android:textAlignment="textStart"
+                            android:layout_marginStart="5dp"
+                            android:text="@string/to_date"
+                            android:shadowRadius="4"
+                            android:shadowColor="@color/white"
+                            android:shadowDx="0"
+                            android:shadowDy="4"
+                            android:maxLines="1"
+                            android:layout_margin="5dp"/>
+
+
+                        <DatePicker
+                            android:id="@+id/to_date_filter"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            android:layout_margin="5dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_gray">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/requests_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</FrameLayout>
