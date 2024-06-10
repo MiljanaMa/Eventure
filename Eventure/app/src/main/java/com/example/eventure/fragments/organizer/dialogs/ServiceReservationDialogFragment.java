@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.eventure.R;
 import com.example.eventure.fragments.common.RegisterOwnerFragment4;
 import com.example.eventure.model.Appointment;
+import com.example.eventure.model.Event;
 import com.example.eventure.model.EventType;
 import com.example.eventure.model.Notification;
 import com.example.eventure.model.Reservation;
@@ -29,6 +30,7 @@ import com.example.eventure.model.User;
 import com.example.eventure.model.enums.NotificationStatus;
 import com.example.eventure.model.enums.ReservationStatus;
 import com.example.eventure.repositories.AppointmentRepository;
+import com.example.eventure.repositories.EventRepository;
 import com.example.eventure.repositories.EventTypeRepository;
 import com.example.eventure.repositories.NotificationRepository;
 import com.example.eventure.repositories.ReservationRepository;
@@ -51,8 +53,10 @@ public class ServiceReservationDialogFragment extends DialogFragment {
     private View view;
     private Service service;
     private Spinner employeeSpinner;
+    private Spinner eventSpinner;
     private User organizer;
     private User employee;
+    private Event event;
     private DatePicker datePicker;
     private TimePicker fromTimePicker;
     private TimePicker toTimePicker;
@@ -65,6 +69,7 @@ public class ServiceReservationDialogFragment extends DialogFragment {
     private UserRepository userRepository;
     private ReservationRepository reservationRepository;
     private AppointmentRepository appointmentRepository;
+    private EventRepository eventRepository;
 
     public ServiceReservationDialogFragment() {
 
@@ -93,7 +98,9 @@ public class ServiceReservationDialogFragment extends DialogFragment {
         userRepository = new UserRepository();
         reservationRepository = new ReservationRepository();
         appointmentRepository = new AppointmentRepository();
+        eventRepository = new EventRepository();
         setUpEmployeeSpinner();
+        setUpEventSpinner();
 
         datePicker = view.findViewById(R.id.date_picker);
         Calendar calendar = Calendar.getInstance();
@@ -194,25 +201,28 @@ public class ServiceReservationDialogFragment extends DialogFragment {
                             organizer = userOrganizer;
                             userRepository.getByUID(((User)employeeSpinner.getSelectedItem()).getId()).thenAccept(userEmployee -> {
                                 employee = userEmployee;
-                                Reservation reservation = new Reservation("", organizer.getId(), organizer, employee.getId(), employee, service.getId(), service,
-                                        fromDateTime, toDateTime, ReservationStatus.NEW, null, cancellationDateTime, false, employee.getCompanyId());
-                                reservationRepository.create(reservation).thenAccept(reservationAdded -> {
-                                    if(reservationAdded){
-                                        String title = "New Service Reservation";
-                                        String message = "You have new reservation. Please check it out.";
-                                        NotificationRepository notificationRepository = new NotificationRepository();
-                                        Notification notification = new Notification("", title, message, employee.getId(), organizer.getId(), NotificationStatus.UNREAD);
-                                        notificationRepository.create(notification).thenAccept(notificationAdded -> {
-                                            if(notificationAdded) {
-                                                Toast.makeText(view.getContext(), "Reservation successfully added!", Toast.LENGTH_SHORT).show();
-                                            }else{
-                                                Toast.makeText(view.getContext(), "Failed to send notification.", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                                        dismiss();
-                                    }else{
-                                        Toast.makeText(view.getContext(), "Reservation is NOT added, somethin went wrong!", Toast.LENGTH_SHORT).show();
-                                    }
+                                eventRepository.getByUID(((Event)eventSpinner.getSelectedItem()).getId()).thenAccept(eventFromDB -> {
+                                    event = eventFromDB;
+                                    Reservation reservation = new Reservation("", organizer.getId(), organizer, employee.getId(), employee, service.getId(), service,
+                                            fromDateTime, toDateTime, ReservationStatus.NEW, null, cancellationDateTime, false, employee.getCompanyId(), event.getId());
+                                    reservationRepository.create(reservation).thenAccept(reservationAdded -> {
+                                        if(reservationAdded){
+                                            String title = "New Service Reservation";
+                                            String message = "You have a new reservation created by " + organizer.getFirstName() + " " + organizer.getLastName() + ". Please review the details.";
+                                            NotificationRepository notificationRepository = new NotificationRepository();
+                                            Notification notification = new Notification("", title, message, employee.getId(), organizer.getId(), NotificationStatus.UNREAD);
+                                            notificationRepository.create(notification).thenAccept(notificationAdded -> {
+                                                if(notificationAdded) {
+                                                    Toast.makeText(view.getContext(), "Reservation successfully added!", Toast.LENGTH_SHORT).show();
+                                                }else{
+                                                    Toast.makeText(view.getContext(), "Failed to send notification.", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                            dismiss();
+                                        }else{
+                                            Toast.makeText(view.getContext(), "Reservation is NOT added, something went wrong!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 });
                             });
                         });
@@ -223,8 +233,6 @@ public class ServiceReservationDialogFragment extends DialogFragment {
                 }
             }
         });
-
-
         return view;
     }
 
@@ -240,6 +248,23 @@ public class ServiceReservationDialogFragment extends DialogFragment {
         });
     }
 
+    private void setUpEventSpinner() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            userRepository.getByEmail(currentUser.getEmail()).thenAccept(userOrganizer -> {
+                organizer = userOrganizer;
+                eventRepository.getByOrganizerId(organizer.getId()).thenAccept(eventsFromDB -> {
+                    if (eventsFromDB != null) {
+                        ArrayAdapter<Event> eventAdapter = new ArrayAdapter<>(requireContext(),
+                                android.R.layout.simple_spinner_item, eventsFromDB);
+                        eventAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        eventSpinner = view.findViewById(R.id.event_spinner);
+                        eventSpinner.setAdapter(eventAdapter);
+                    }
+                });
+            });
+        }
+    }
 
     private Date getDateTimeFromPicker(DatePicker datePicker, TimePicker timePicker) {
         int day = datePicker.getDayOfMonth();

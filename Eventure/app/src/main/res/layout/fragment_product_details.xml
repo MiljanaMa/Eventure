@@ -396,11 +396,12 @@
                     android:backgroundTint="@color/orange"/>
 
                 <Button
+                    android:id="@+id/buy_button"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:background="@drawable/sublayout_border"
-                    android:text="Reserve"
+                    android:text="@string/buy"
                     android:fontFamily="@font/merienda_font"
                     android:backgroundTint="@color/orange"/>
             </LinearLayout>

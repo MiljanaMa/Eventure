@@ -54,6 +54,7 @@ public class CompanyProfile extends Fragment {
     private CompanyRepository companyRepository;
     private ReservationRepository reservationRepository;
     private Ratings ratingsView;
+    private View mainView;
     private FirebaseUser currentUser;
 
     public CompanyProfile() {
@@ -80,7 +81,7 @@ public class CompanyProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_company_profile, container, false);
-
+        mainView = view;
         categoryRepository = new CategoryRepository();
         eventTypeRepository = new EventTypeRepository();
         imageRepository = new ImageRepository();
@@ -124,7 +125,7 @@ public class CompanyProfile extends Fragment {
                         addRating.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                RatingDialog dialogFragment = RatingDialog.newInstance(company.getId(), ratingsView);
+                                RatingDialog dialogFragment = RatingDialog.newInstance(company.getId(), ratingsView, mainView);
                                 dialogFragment.show(requireActivity().getSupportFragmentManager(), "RatingDialog");
                             }
                         });

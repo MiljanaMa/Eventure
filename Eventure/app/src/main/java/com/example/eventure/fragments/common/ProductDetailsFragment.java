@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.eventure.R;
 import com.example.eventure.fragments.common.dialogs.RatingDialog;
+import com.example.eventure.fragments.organizer.dialogs.ProductPurchaseDialogFragment;
+import com.example.eventure.fragments.organizer.dialogs.ServiceReservationDialogFragment;
 import com.example.eventure.model.Favorites;
 import com.example.eventure.model.Notification;
 import com.example.eventure.model.Product;
@@ -106,6 +108,15 @@ public class ProductDetailsFragment extends Fragment {
                      Toast.makeText(view.getContext(), "Failed to add new product to favorites.", Toast.LENGTH_SHORT).show();
                    }
                 });
+            }
+        });
+
+        Button buyButton = view.findViewById(R.id.buy_button);
+        buyButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                ProductPurchaseDialogFragment dialogFragment = ProductPurchaseDialogFragment.newInstance(product);
+                dialogFragment.show(getFragmentManager(), "ProductPurchaseDialogFragment");
             }
         });
 

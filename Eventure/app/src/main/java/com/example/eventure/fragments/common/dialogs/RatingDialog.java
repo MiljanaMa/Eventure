@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.eventure.R;
 import com.example.eventure.databinding.FragmentRatingDialogBinding;
+import com.example.eventure.fragments.common.CompanyProfile;
 import com.example.eventure.fragments.common.Ratings;
 import com.example.eventure.model.Notification;
 import com.example.eventure.model.Rating;
@@ -35,17 +36,19 @@ public class RatingDialog extends DialogFragment {
     private FirebaseUser currentUser;
 
     private static Ratings ratingsView;
+    private static View companyProfile;
 
     public RatingDialog() {
         // Required empty public constructor
     }
 
-    public static RatingDialog newInstance(String companyId, Ratings ratings) {
+    public static RatingDialog newInstance(String companyId, Ratings ratings, View view) {
         RatingDialog fragment = new RatingDialog();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, companyId);
         fragment.setArguments(args);
         ratingsView = ratings;
+        companyProfile = view;
         return fragment;
     }
 
@@ -111,9 +114,11 @@ public class RatingDialog extends DialogFragment {
                         Toast.makeText(root.getContext(), "Rating created successfully", Toast.LENGTH_SHORT).show();
                         userRepository.getCompanyOwner(companyId).thenAccept(user -> {
                             if (user != null) {
-                                Notification notification = new Notification(UUIDUtil.generateUUID(), "New rating", "New rating for your company is made",
+                                Notification notification = new Notification(UUIDUtil.generateUUID(), "New rating", "Your company has new rating with comment: " + rating.getComment(),
                                         user.getId(), currentUser.getUid(), NotificationStatus.UNREAD);
                                 notificationRepository.create(notification).thenAccept(creationResult -> {
+                                    Button addRating = companyProfile.findViewById(R.id.addRating);
+                                    addRating.setVisibility(View.GONE);
                                     ratingsView.refreshRatings();
                                     dismiss();
                                 });

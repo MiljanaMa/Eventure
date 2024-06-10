@@ -1,6 +1,7 @@
 package com.example.eventure.repositories;
 
 import com.example.eventure.model.Budget;
+import com.example.eventure.model.BudgetItem;
 import com.example.eventure.model.Rating;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
