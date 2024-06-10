@@ -65,4 +65,71 @@ public class MessageRepository {
                 .addOnFailureListener(e -> deletionResult.complete(false));
         return deletionResult;
     }
+
+    public CompletableFuture<List<Message>> getByUser(String senderId){
+        CompletableFuture<List<Message>> futureMessages = new CompletableFuture<>();
+        CollectionReference messagesCollection = FirebaseFirestore.getInstance().collection("messages");
+
+        messagesCollection.whereEqualTo("senderId", senderId).get()
+                .addOnSuccessListener(querySnapshot -> {
+                    List<Message> messages = new ArrayList<>();
+                    for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                        Message message = document.toObject(Message.class);
+                        if (message != null) {
+                            messages.add(message);
+                        }
+                    }
+                    messagesCollection.whereEqualTo("recipientId", senderId)
+                            .get()
+                            .addOnSuccessListener(guerySnapshot2 -> {
+                                for (DocumentSnapshot document : guerySnapshot2.getDocuments()) {
+                                    Message message = document.toObject(Message.class);
+                                    if (message != null) {
+                                        messages.add(message);
+                                    }
+                                }
+                            });
+
+                    futureMessages.complete(messages);
+                })
+                .addOnFailureListener(e -> futureMessages.completeExceptionally(e));
+
+        return futureMessages;
+    }
+
+    public CompletableFuture<List<Message>> getBy2Users(String senderId, String recipientId){
+        CompletableFuture<List<Message>> futureMessages = new CompletableFuture<>();
+        CollectionReference messagesCollection = FirebaseFirestore.getInstance().collection("messages");
+
+        messagesCollection
+                .whereEqualTo("senderId", senderId)
+                .whereEqualTo("recipientId", recipientId)
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    List<Message> messages = new ArrayList<>();
+                    for (DocumentSnapshot document : querySnapshot.getDocuments()) {
+                        Message message = document.toObject(Message.class);
+                        if (message != null) {
+                            messages.add(message);
+                        }
+                    }
+                    messagesCollection
+                            .whereEqualTo("recipientId", recipientId)
+                            .whereEqualTo("senderId", senderId)
+                            .get()
+                            .addOnSuccessListener(guerySnapshot2 -> {
+                                for (DocumentSnapshot document : guerySnapshot2.getDocuments()) {
+                                    Message message = document.toObject(Message.class);
+                                    if (message != null) {
+                                        messages.add(message);
+                                    }
+                                }
+                            });
+
+                    futureMessages.complete(messages);
+                })
+                .addOnFailureListener(e -> futureMessages.completeExceptionally(e));
+
+        return futureMessages;
+    }
 }

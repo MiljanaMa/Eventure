@@ -340,5 +340,11 @@
         tools:layout="@layout/fragment_favorites">
     </fragment>
 
+    <fragment
+        android:id="@+id/chat_listing"
+        android:name="com.example.eventure.fragments.organizer.ChatListFragment"
+        android:label="Chat"
+        tools:layout="@layout/chat_list" />
+
 
 </navigation>

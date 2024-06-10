@@ -110,6 +110,8 @@ public class CompanyProfile extends Fragment {
         TextView textViewPhone = view.findViewById(R.id.textViewPhoneInfoCompany);
         TextView textViewAddress = view.findViewById(R.id.textViewAddressInfoCompany);
         Button addRating = view.findViewById(R.id.addRating);
+        Button sendMessageBtn = view.findViewById(R.id.sendMessage);
+
         //check if it can leave rating
         addRating.setVisibility(View.GONE);
         reservationRepository.getOrganizerRealizedAndCancelled(currentUser.getUid()).thenAccept(reservations -> {
@@ -140,6 +142,15 @@ public class CompanyProfile extends Fragment {
             public void onClick(View v) {
                 ReportDialog dialogFragment1 = ReportDialog.newInstance(company.getId(), "company", ratingsView);
                 dialogFragment1.show(requireActivity().getSupportFragmentManager(), "ReportDialog");
+            }
+        });
+
+        sendMessageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //posalji id vlasnika/ili email i posaji poruku
+                String ownerId = company.getOwnerId();
+                //treba mi ovde nei prikaz sada
             }
         });
 

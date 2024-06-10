@@ -3,63 +3,70 @@ package com.example.eventure.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
 import com.example.eventure.R;
 import com.example.eventure.fragments.organizer.ChatFragment;
-import com.example.eventure.model.Message;
+import com.example.eventure.model.User;
+import com.example.eventure.settings.FragmentTransition;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatViewHolder>{
-    private List<Message> messages;
-    private FragmentManager fragmentManager;
-    private ChatFragment chatFragment;
+public class ChatListAdapter extends ArrayAdapter<User> {
+    private List<User> users = new ArrayList<>();
+    private FragmentActivity context;
 
-    public ChatListAdapter(List<Message> messages, FragmentManager fragmentManager, ChatFragment chatFragment) {
-        this.messages = messages;
-        this.fragmentManager = fragmentManager;
-        this.chatFragment = chatFragment;
+    public ChatListAdapter(FragmentActivity context, ArrayList<User> u){
+        super(context, R.layout.chat_card, u);
+        this.users = u;
+        this.context = context;
+    }
+
+    @Override
+    public int getCount() {
+        return users.size();
+    }
+
+
+    @Nullable
+    @Override
+    public User getItem(int position) {
+        return users.get(position);
+    }
+
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     @NonNull
     @Override
-    public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_card, parent, false);
-        return new ChatListAdapter.ChatViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
-
-    }
-
-    @Override
-    public int getItemCount() {
-        return messages.size();
-    }
-
-    public static class ChatViewHolder extends RecyclerView.ViewHolder {
-        TextView time;
-        TextView content;
-        TextView status;
-        Button markAsReadButton;
-
-
-        public ChatViewHolder(@NonNull View itemView) {
-            super(itemView);
-            time = itemView.findViewById(R.id.time);
-            content = itemView.findViewById(R.id.content);
-            status = itemView.findViewById(R.id.status);
-            markAsReadButton = itemView.findViewById(R.id.mark_as_read_button);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        User e = getItem(position);
+        if(convertView == null){
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.chat_card,
+                    parent, false);
         }
 
-    }
+        TextView name = convertView.findViewById(R.id.name);
+        name.setText(e.getFirstName() + " " + e.getLastName());
 
+        LinearLayout card = (LinearLayout) convertView.findViewById(R.id.card);
+        card.setOnClickListener(v -> {
+
+            FragmentTransition.to(ChatFragment.newInstance(e.getId()), context,
+                    true, R.id.chat_listing);
+        });
+
+        return convertView;
+    }
 }
