@@ -50,6 +50,10 @@ public class  Event implements Parcelable {
         this.agendaId = agendaId;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 
     public String getId() {
         return id;
@@ -178,6 +182,8 @@ public class  Event implements Parcelable {
     public void setEventType(String eventType) {
         this.eventType = eventType;
     }
+
+
 
     protected Event(Parcel in) {
         id = in.readString();
