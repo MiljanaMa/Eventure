@@ -137,15 +137,11 @@ public class Ratings extends Fragment {
     }
 
     private void filter(View view) {
-        // Get the start date from the DatePicker
-        Calendar fromCal = Calendar.getInstance();
-        fromCal.set(from.getYear(), from.getMonth(), from.getDay(), 0, 0, 0);
-        Date fromDate = fromCal.getTime();
 
+        Date fromDate = new Date(from.getYear() - 1900, from.getMonth() - 1, from.getDate());
+        Date toDate = new Date(to.getYear() - 1900, to.getMonth() - 1, to.getDate());
         // Get the end date from the DatePicker
-        Calendar toCal = Calendar.getInstance();
-        toCal.set(to.getYear(), to.getMonth(), to.getDay(), 23, 59, 59);
-        Date toDate = toCal.getTime();
+
 
         List<Rating> ret = new ArrayList<>();
         for (Rating r : ratings) {

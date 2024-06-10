@@ -207,10 +207,10 @@ public class ReservationsAdapter extends RecyclerView.Adapter<ReservationsAdapte
                                 acceptButton.setVisibility((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) && packageDb.getManualConfirmation()) ? View.VISIBLE : View.GONE);
                                 rejectButton.setVisibility((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) && packageDb.getManualConfirmation()) ? View.VISIBLE : View.GONE);
 
-                                //acceptButton.setOnClickListener(v -> acceptReservation(reservation));
+                                acceptButton.setOnClickListener(v -> acceptReservation(reservation));
                                 rejectButton.setOnClickListener(v -> rejectReservation(reservation));
 
-                                cancelButton.setVisibility(((reservation.getStatus().equals(ReservationStatus.NEW)) ? View.VISIBLE : View.GONE));
+                                cancelButton.setVisibility((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) ? View.VISIBLE : View.GONE));
                                 cancelButton.setOnClickListener(v -> cancelReservation(reservation));
                             }
                         }
@@ -236,16 +236,24 @@ public class ReservationsAdapter extends RecyclerView.Adapter<ReservationsAdapte
                             if (user.getRole().equals(UserRole.ORGANIZER)) {
                                 acceptButton.setVisibility(View.GONE);
                                 rejectButton.setVisibility(View.GONE);
-                                cancelButton.setVisibility(((reservation.getStatus().equals(ReservationStatus.NEW) || reservation.getStatus().equals(ReservationStatus.ACCEPTED)) && (!reservation.getCancellationDeadline().before(new Date()))) ? View.VISIBLE : View.GONE);
+                                cancelButton.setVisibility(((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) || reservation.getStatus().toString().equals(ReservationStatus.ACCEPTED.toString())) && (!reservation.getCancellationDeadline().before(new Date()))) ? View.VISIBLE : View.GONE);
                                 cancelButton.setOnClickListener(v -> cancelReservation(reservation));
                             } else {
-                                acceptButton.setVisibility((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) && service.getConfirmationType().equals(ConfirmationType.BYHAND) && (user.getRole().equals(UserRole.EMPLOYEE) && reservation.getAcceptedEmployeeIds().contains(currentUser.getUid()) && !user.getRole().equals(UserRole.OWNER))) ? View.VISIBLE : View.GONE);
+                                //
+                                if((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) && service.getConfirmationType().equals(ConfirmationType.BYHAND) && (reservation.getPackageId() != null && reservation.getAcceptedEmployeeIds().contains(currentUser.getUid()) && !user.getRole().equals(UserRole.OWNER)))){
+                                    acceptButton.setVisibility(View.VISIBLE);
+                                }else if((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) && service.getConfirmationType().equals(ConfirmationType.BYHAND) && reservation.getPackageId() == null)){
+                                    acceptButton.setVisibility(View.VISIBLE);
+                                }else{
+                                    acceptButton.setVisibility(View.GONE);
+                                }
+                                //acceptButton.setVisibility((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) && service.getConfirmationType().equals(ConfirmationType.BYHAND) && (user.getRole().equals(UserRole.EMPLOYEE) && reservation.getAcceptedEmployeeIds().contains(currentUser.getUid()) && !user.getRole().equals(UserRole.OWNER))) ? View.VISIBLE : View.GONE);
                                 rejectButton.setVisibility((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) && service.getConfirmationType().equals(ConfirmationType.BYHAND)) ? View.VISIBLE : View.GONE);
 
                                 acceptButton.setOnClickListener(v -> acceptReservation(reservation));
                                 rejectButton.setOnClickListener(v -> rejectReservation(reservation));
 
-                                cancelButton.setVisibility(((reservation.getStatus().equals(ReservationStatus.NEW)) ? View.VISIBLE : View.GONE));
+                                cancelButton.setVisibility((reservation.getStatus().toString().equals(ReservationStatus.NEW.toString()) ? View.VISIBLE : View.GONE));
                                 cancelButton.setOnClickListener(v -> cancelReservation(reservation));
                             }
                             userRepository.getByUID(reservation.getOrganizerId()).thenAccept(organizer -> {
@@ -283,13 +291,16 @@ public class ReservationsAdapter extends RecyclerView.Adapter<ReservationsAdapte
                     }
                     if (user.getRole().equals(UserRole.ORGANIZER)) {
                         //send notification to employee
-                        Notification notification = new Notification(UUIDUtil.generateUUID(), "Reservation", user.getFirstName() + " " + user.getLastName() + "cancelled his reservation", reservation.getEmployeeId(), reservation.getOrganizerId(), NotificationStatus.UNREAD);
+                        Notification notification = new Notification(UUIDUtil.generateUUID(), "Reservation", user.getFirstName() + " " + user.getLastName() + " cancelled his reservation", reservation.getEmployeeId(), reservation.getOrganizerId(), NotificationStatus.UNREAD);
                         notificationRepository.create(notification).thenAccept(created -> {
                         });
                     } else {
                         //send notification to organizer
-                        Notification notification = new Notification(UUIDUtil.generateUUID(), "Reservation", user.getFirstName() + " " + user.getLastName() + "cancelled his reservation", reservation.getOrganizerId(), user.getId(), NotificationStatus.UNREAD);
+                        Notification notification = new Notification(UUIDUtil.generateUUID(), "Reservation", user.getFirstName() + " " + user.getLastName() + " cancelled reservation", reservation.getOrganizerId(), user.getId(), NotificationStatus.UNREAD);
                         notificationRepository.create(notification).thenAccept(created -> {
+                            Notification notificationForRate = new Notification(UUIDUtil.generateUUID(), "Rate", user.getFirstName() + " " + user.getLastName() + "cancelled your reservation, so you can rate company", reservation.getOrganizerId(), user.getId(), NotificationStatus.UNREAD);
+                            notificationRepository.create(notificationForRate).thenAccept(created1 -> {
+                            });
                         });
                     }
                 }
@@ -302,7 +313,7 @@ public class ReservationsAdapter extends RecyclerView.Adapter<ReservationsAdapte
                 if (reservationUpdated) {
                     notifyDataSetChanged();
                     SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-                    Notification not = new Notification(UUID.randomUUID().toString(), "Reservation rejection", "Your reservation from " + (sdf.format(reservation.getFrom()) + " - " + sdf.format(reservation.getTo()) + "is rejected."), reservation.getOrganizerId(), currentUser.getUid(), NotificationStatus.UNREAD);
+                    Notification not = new Notification(UUID.randomUUID().toString(), "Reservation rejection", "Your reservation from " + (sdf.format(reservation.getFrom()) + " - " + sdf.format(reservation.getTo()) + " is rejected."), reservation.getOrganizerId(), currentUser.getUid(), NotificationStatus.UNREAD);
                     notificationRepository.create(not).thenAccept(send -> {
                     });
                 }
@@ -321,7 +332,7 @@ public class ReservationsAdapter extends RecyclerView.Adapter<ReservationsAdapte
 
             }
             reservationRepository.update(reservation).thenAccept(updated -> {
-                if (updated && reservation.getStatus().equals(ReservationStatus.ACCEPTED)) {
+                if (updated && reservation.getStatus().toString().equals(ReservationStatus.ACCEPTED.toString())) {
                     notifyDataSetChanged();
                     if (reservation.getPackageId() == null) {
                         com.example.eventure.model.Date date = new com.example.eventure.model.Date(reservation.getFrom().getYear() + 1900, reservation.getFrom().getMonth() + 1, reservation.getFrom().getDate());
