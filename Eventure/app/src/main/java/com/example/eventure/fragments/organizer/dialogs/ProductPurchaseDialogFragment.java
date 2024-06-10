@@ -102,6 +102,7 @@ public class ProductPurchaseDialogFragment extends DialogFragment {
                                     Log.w("uslo", "uslo 3");
                                     if (budgetUpdated) {
                                         Toast.makeText(view.getContext(), "Product is added to budget!", Toast.LENGTH_SHORT).show();
+                                        dismiss();
                                     } else {
                                         Toast.makeText(view.getContext(), "Failed to add product to budget.", Toast.LENGTH_SHORT).show();
                                     }
