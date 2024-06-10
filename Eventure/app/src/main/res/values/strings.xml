@@ -161,6 +161,8 @@
     <string name="to_time">To time</string>
     <string name="check_availability">Check availability</string>
     <string name="select_date">Choose a date to view the reserved slots for that specific day.</string>
+    <string name="event">Event</string>
+    <string name="buy">Buy</string>
 
     <string-array name="sort_spinner_array">
         <item>Ascending </item>
@@ -254,13 +256,13 @@
     <string name="reports">Reports</string>
     <string name="reported">Reported:</string>
     <string name="organizer1">Organizer :</string>
-    <string name="employee1" >Employee:&#160;</string>
-    <string name="service1"  >Service:&#160;&#160;&#160;&#160;&#160;</string>
-    <string name="category1" >Category:&#160;&#160;&#160;</string>
-    <string name="status"    >Status:&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
-    <string name="date1"    >Date:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
-    <string name="deadline"  >Deadline:&#160;&#160;&#160;</string>
-    <string name="period1"   >Period:&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="employee1">Employee:&#160;</string>
+    <string name="service1">Service:&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="category1">Category:&#160;&#160;&#160;</string>
+    <string name="status">Status:&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="date1">Date:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="deadline">Deadline:&#160;&#160;&#160;</string>
+    <string name="period1">Period:&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

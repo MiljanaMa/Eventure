@@ -35,7 +35,7 @@ public class Reservation implements Parcelable {
 
     public Reservation(String id, String organizerId, User organizer, String employeeId, User employee, String serviceId,
                        Service service, Date from, Date to, ReservationStatus status, String packageId, Date cancellationDeadline,
-                       Boolean hasRating, String companyId) {
+                       Boolean hasRating, String companyId, String eventId) {
         this.id = id;
         this.organizerId = organizerId;
         this.organizer = organizer;
@@ -50,6 +50,7 @@ public class Reservation implements Parcelable {
         this.cancellationDeadline = cancellationDeadline;
         this.hasRating = hasRating;
         this.companyId = companyId;
+        this.eventId = eventId;
     }
 
     public Reservation(Reservation reservation) {

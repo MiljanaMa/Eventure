@@ -3,6 +3,7 @@ package com.example.eventure.repositories;
 import android.util.Log;
 
 import com.example.eventure.model.Event;
+import com.example.eventure.model.Subcategory;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -58,8 +59,23 @@ public class EventRepository {
     }
 
 
-    // TODO: dodaj za update, trebace kada se bude dodavao budzet i agenda i gosti... ili da to sve budu reference pa da se samo dodaju reference kada se update ovo...
-    // ili dodati samo metodu update budget/ update agenda/ guest list??
+    public CompletableFuture<List<Event>> getByOrganizerId(String organizerId) {
+        CompletableFuture<List<Event>> eventsByCategory = new CompletableFuture<>();
+        eventCollection.whereEqualTo("organizerId", organizerId)
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    List<Event> events = new ArrayList<>();
+                    for (QueryDocumentSnapshot document : querySnapshot) {
+                        Event event = document.toObject(Event.class);
+                        events.add(event);
+                    }
+                    eventsByCategory.complete(events);
+                })
+                .addOnFailureListener(e -> {
+                    eventsByCategory.complete(null);
+                });
+        return eventsByCategory;
+    }
 
 
 }
