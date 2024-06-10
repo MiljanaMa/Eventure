@@ -1,5 +1,6 @@
 package com.example.eventure.adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,7 @@ public class ChatListAdapter extends ArrayAdapter<User> {
             FragmentTransition.to(ChatFragment.newInstance(e.getId()), context,
                     true, R.id.chat_listing);
         });
+        Log.e("chat list adapterrrr", "cla 1");
 
         return convertView;
     }
