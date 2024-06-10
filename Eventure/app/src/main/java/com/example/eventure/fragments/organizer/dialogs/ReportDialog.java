@@ -116,7 +116,7 @@ public class ReportDialog extends DialogFragment {
                                        if(updated){
                                            userRepository.getAdmins().thenAccept(admins -> {
                                                for (User admin : admins) {
-                                                   Notification notification = new Notification(UUIDUtil.generateUUID(), "New report", "New report from is waiting for response",
+                                                   Notification notification = new Notification(UUIDUtil.generateUUID(), "New report", "New rating report is waiting for response, reason: " + report.getReason(),
                                                            admin.getId(), currentUser.getUid(), NotificationStatus.UNREAD);
                                                    notificationRepository.create(notification).thenAccept(creationResult -> {
                                                    });
@@ -128,6 +128,25 @@ public class ReportDialog extends DialogFragment {
                                        }
                                    });
                                }
+                            });
+                        }else if(report.getType().equals(ReportType.COMPANY)){
+                            userRepository.getAdmins().thenAccept(admins -> {
+                                for (User admin : admins) {
+                                    Notification notification = new Notification(UUIDUtil.generateUUID(), "New report", "New company report is waiting for response, reason: " + report.getReason(),
+                                            admin.getId(), currentUser.getUid(), NotificationStatus.UNREAD);
+                                    notificationRepository.create(notification).thenAccept(creationResult -> {
+                                    });
+                                }
+                            });
+                            dismiss();
+                        }else{
+                            userRepository.getAdmins().thenAccept(admins -> {
+                                for (User admin : admins) {
+                                    Notification notification = new Notification(UUIDUtil.generateUUID(), "New report", "New organizer report is waiting for response, reason: " + report.getReason(),
+                                            admin.getId(), currentUser.getUid(), NotificationStatus.UNREAD);
+                                    notificationRepository.create(notification).thenAccept(creationResult -> {
+                                    });
+                                }
                             });
                         }
                         dismiss();
