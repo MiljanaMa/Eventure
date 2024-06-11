@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.eventure.R;
 import com.example.eventure.fragments.organizer.ChatFragment;
@@ -24,11 +25,21 @@ import java.util.List;
 public class ChatListAdapter extends ArrayAdapter<User> {
     private List<User> users = new ArrayList<>();
     private FragmentActivity context;
+    private FragmentManager fragmentManager;
+
+
+    /*public ChatListAdapter(FragmentActivity context, ArrayList<User> u){
+        super(co);
+        //super(fragmentManager.getPrimaryNavigationFragment().getContext(), R.layout.chat_card, u);
+        this.users = u;
+        this.fragmentManager = fragmentManager;
+    }*/
 
     public ChatListAdapter(FragmentActivity context, ArrayList<User> u){
         super(context, R.layout.chat_card, u);
         this.users = u;
         this.context = context;
+        this.fragmentManager = context.getSupportFragmentManager();
     }
 
     @Override
@@ -63,9 +74,13 @@ public class ChatListAdapter extends ArrayAdapter<User> {
 
         LinearLayout card = (LinearLayout) convertView.findViewById(R.id.card);
         card.setOnClickListener(v -> {
-
-            FragmentTransition.to(ChatFragment.newInstance(e.getId()), context,
-                    true, R.id.chat_listing);
+            //FragmentTransition.to(ChatFragment.newInstance(e.getId()), context,
+             //       true, R.id.chat);
+            ChatFragment fragment = ChatFragment.newInstance(e.getId());
+            fragmentManager.beginTransaction()
+                    .replace(R.id.activity_home_base, fragment)
+                    .addToBackStack(null)
+                    .commit();
         });
         Log.e("chat list adapterrrr", "cla 1");
 

@@ -346,5 +346,11 @@
         android:label="Chat"
         tools:layout="@layout/chat_list" />
 
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.example.eventure.fragments.organizer.ChatFragment"
+        android:label="ChatWithMessages"
+        tools:layout="@layout/chat" />
+
 
 </navigation>

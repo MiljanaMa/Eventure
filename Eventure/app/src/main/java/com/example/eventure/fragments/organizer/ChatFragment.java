@@ -41,12 +41,15 @@ import java.util.Date;
 
 public class ChatFragment extends Fragment {
 
-    private ChatBinding binding;
     private User recipient = new User();
     private String recipientId;
     private User sender = new User();
     private ArrayList<Message> messages = new ArrayList<>();
     private static FirebaseUser currentUser;
+    private View root;
+    private ChatBinding binding;
+    private static final String ARG_SERVICE = "recipientId";
+
 
     public ChatFragment() {
         // Required empty public constructor
@@ -55,6 +58,9 @@ public class ChatFragment extends Fragment {
 
     public static ChatFragment newInstance(String recipientId) {
         ChatFragment fragment = new ChatFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_SERVICE, recipientId);
+        fragment.setArguments(args);
         fragment.recipientId = recipientId;
         fragment.recipient.setId(recipientId);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -66,12 +72,15 @@ public class ChatFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        if (getArguments() != null) {
+            recipientId = getArguments().getString(ARG_SERVICE);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //root = inflater.inflate(R.layout.chat, container, false);
         binding = ChatBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -79,6 +88,7 @@ public class ChatFragment extends Fragment {
         getRecipient();
 
         Button back = binding.getRoot().findViewById(R.id.buttonBack);
+        //Button back = root.findViewById(R.id.buttonBack);
         back.setOnClickListener(e -> {
             getActivity().getSupportFragmentManager().popBackStack();
         });
@@ -212,7 +222,7 @@ public class ChatFragment extends Fragment {
                    };
                    Collections.sort(messages, messageComparator);
 
-                   ListView listView = binding.getRoot().findViewById(R.id.messages);
+                   ListView listView = root.findViewById(R.id.messages);
                    MessageAdapter adapter;
                    adapter = new MessageAdapter(getActivity(), messages, sender, recipient);
                    listView.setAdapter(adapter);
