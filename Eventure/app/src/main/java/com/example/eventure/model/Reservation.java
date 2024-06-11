@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.example.eventure.model.enums.ReservationStatus;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -51,6 +52,10 @@ public class Reservation implements Parcelable {
         this.hasRating = hasRating;
         this.companyId = companyId;
         this.eventId = eventId;
+        this.isNotified = false;
+        this.cancellationDate = from;
+        appointmentIds = new ArrayList<>();
+        acceptedEmployeeIds = new ArrayList<>();
     }
 
     public Reservation(Reservation reservation) {
