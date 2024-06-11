@@ -2,12 +2,8 @@ package com.example.eventure.repositories;
 
 import android.util.Log;
 
-import com.example.eventure.model.Category;
 import com.example.eventure.model.CurrentUser;
-import com.example.eventure.model.Notification;
-import com.example.eventure.model.OwnerRegistrationRequest;
 import com.example.eventure.model.User;
-import com.example.eventure.model.enums.ApprovalStatus;
 import com.example.eventure.model.enums.UserRole;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -262,6 +258,24 @@ public class UserRepository {
 
         userCollection.whereIn("id", userIds)
                 .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    List<User> users = new ArrayList<>();
+                    for (QueryDocumentSnapshot document : querySnapshot) {
+                        User user = document.toObject(User.class);
+                        users.add(user);
+                    }
+                    allUsers.complete(users);
+                })
+                .addOnFailureListener(e -> {
+                    allUsers.complete(null);
+                });
+        return allUsers;
+    }
+
+
+    public CompletableFuture<List<User>> getAll() {
+        CompletableFuture<List<User>> allUsers = new CompletableFuture<>();
+        userCollection.get()
                 .addOnSuccessListener(querySnapshot -> {
                     List<User> users = new ArrayList<>();
                     for (QueryDocumentSnapshot document : querySnapshot) {
